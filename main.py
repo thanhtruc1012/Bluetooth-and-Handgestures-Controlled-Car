@@ -11,7 +11,7 @@ ser = serial.Serial('/dev/cu.usbmodem206EF131E6582', 115200)
 mp_draw = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 
-
+#this can be 0 or 1
 video = cv2.VideoCapture(1)
 
 
@@ -61,7 +61,7 @@ with mp_hands.Hands(max_num_hands = 2, min_detection_confidence=0.5, min_trackin
             dx = index_tip.x - wrist.x
             dy = index_tip.y - wrist.y
             dy2 = middle_tip.y - wrist.y
-            #pinky up 
+            #pinky up, this is just extra, sometimes it is hard to detect your hand
             reverse = (pinky_tip.y > pinky_mcp.y and index_tip.y > hand.landmark[6].y and middle_tip.y > hand.landmark[10].y
             )
             #if command changes, it changes
